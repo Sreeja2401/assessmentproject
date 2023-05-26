@@ -1,0 +1,11 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+AssesmentProject,com.epam.exception,ExceptionResponse,0,27,0,0,0,5,0,5,0,5
+AssesmentProject,com.epam.exception,MyExceptionHandler,30,66,0,0,4,10,2,6,2,6
+AssesmentProject,com.epam.exception,AssociateException,0,4,0,0,0,2,0,1,0,1
+AssesmentProject,com.epam.service,AssociateServiceImpl,0,112,0,0,0,19,0,9,0,9
+AssesmentProject,com.epam.restcontroller,AssociateRestController,0,55,0,0,0,11,0,6,0,6
+AssesmentProject,com.epam.dto,BatchDto,4,19,0,0,0,2,1,5,1,5
+AssesmentProject,com.epam.dto,AssociateDto,46,236,32,24,0,4,26,20,0,18
+AssesmentProject,com.epam,AssesmentProjectApplication,5,7,0,0,2,2,1,2,1,2
+AssesmentProject,com.epam.model,Batch,15,43,0,0,4,17,3,11,3,11
+AssesmentProject,com.epam.model,Associate,0,52,0,0,0,22,0,15,0,15

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AssociateDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AssesmentProject</a> &gt; <a href="index.source.html" class="el_package">com.epam.dto</a> &gt; <span class="el_source">AssociateDto.java</span></div><h1>AssociateDto.java</h1><pre class="source lang-java linenums">package com.epam.dto;
+
+import com.epam.model.Batch;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.AccessMode;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+<span class="fc" id="L16">@Getter</span>
+<span class="fc" id="L17">@Setter</span>
+<span class="fc" id="L18">@NoArgsConstructor</span>
+<span class="pc bpc" id="L19" title="32 of 56 branches missed.">@EqualsAndHashCode</span>
+public class AssociateDto {
+	@Schema(accessMode = AccessMode.READ_ONLY)
+	private int id;
+	@NotBlank(message = &quot;name is required&quot;)
+	private String name;
+	@NotBlank(message = &quot;email is required&quot;)
+	@Email(message= &quot;Email must be in the correct format&quot;)
+	private String email;
+	@NotBlank(message=&quot;Enter proper gender type&quot;)
+	@Pattern(regexp = &quot;^(?)(Male|Female)$&quot;,message = &quot;Gender should be either male or Female&quot; )
+	private String gender;
+	@NotBlank(message=&quot;college is required&quot;)
+	private String college;
+	@NotBlank(message=&quot;status is required&quot;)
+	@Pattern(regexp =&quot;^(?)(Active|InActive)$&quot;,message=&quot;Status should be either active or inactive&quot;)
+	private String status;
+	@Valid
+	private Batch batch;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
