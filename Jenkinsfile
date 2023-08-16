@@ -41,9 +41,11 @@ pipeline {
             }
         }
          stage('Deploy to Tomcat') {
-                    steps {
-                        deploy adapters: [tomcat(credentialsId: 'TOMCAT_CREDENTIALS', url: 'http://localhost:9005')], contextPath: '/gold', war: '**/*.war'
-                    }
-                }
+                     steps {
+                         deploy adapters: [
+                             tomcat(credentialsId: 'TOMCAT_CREDENTIALS', war: '**/*.war', url: 'http://localhost:9005')
+                         ]
+                     }
+                 }
     }
 }
