@@ -32,6 +32,7 @@ public class AssociateRestController {
 	@PostMapping
 	public ResponseEntity<AssociateDto> createAssociate(@Valid @RequestBody AssociateDto associateDto)
 	{
+		log.info("hii");
 		log.info(" in create Associate Method RestController with provided value :{}",associateDto);
 		return new ResponseEntity<>(associateServiceImpl.createAssociate(associateDto),HttpStatus.CREATED);
 	}
