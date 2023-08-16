@@ -23,7 +23,9 @@ pipeline {
     agent any
 
     environment {
-        SONAR_TOKEN = credentials('sonar-token') // Use the ID of the SonarQube token credential
+        SONAR_TOKEN = credentials('sonar-token')
+         TOMCAT_CREDENTIALS = credentials('TOMCAT_CREDENTIALS') // Use the ID of the Jenkins credential containing Tomcat credentials
+
     }
 
     stages {
@@ -38,5 +40,10 @@ pipeline {
                 bat "mvn sonar:sonar -Dsonar.projectKey=jenkins-pipeline -Dsonar.projectName='jenkins-pipeline' -Dsonar.host.url=http://localhost:9000 -Dsonar.login=%SONAR_TOKEN% -Dsonar.java.coveragePlugin=jacoco"
             }
         }
+         stage('Deploy to Tomcat') {
+                    steps {
+                        deploy adapters: [tomcat(credentialsId: 'TOMCAT_CREDENTIALS', url: 'http://localhost:9000')], contextPath: '/gold', war: '**/*.war'
+                    }
+                }
     }
 }
