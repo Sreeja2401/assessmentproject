@@ -40,12 +40,24 @@ pipeline {
                 bat "mvn sonar:sonar -Dsonar.projectKey=jenkins-pipeline -Dsonar.projectName='jenkins-pipeline' -Dsonar.host.url=http://localhost:9000 -Dsonar.login=%SONAR_TOKEN% -Dsonar.java.coveragePlugin=jacoco"
             }
         }
-         stage('Deploy to Tomcat') {
+         /* stage('Deploy to Tomcat') {
                      steps {
                          deploy adapters: [
-                             tomcat(credentialsId: 'TOMCAT_CREDENTIALS', war: '**/*.war', url: 'http://localhost:9005')
+                             tomcat(credentialsId: 'TOMCAT_CREDENTIALS', war: '** /* *//*.war', url: 'http://localhost:9005')
                          ]
                      }
-                 }
+                 } */
+
+                 stage('Deploy to Tomcat') {
+                             steps {
+                                 // Deploy the war file to Tomcat
+                                 tomcat(
+                                     credentialsId: 'TOMCAT_CREDENTIALS',
+                                     war: '**/*.war',
+                                     url: 'http://localhost:9005',
+                                     path: '/assessment'
+                                 )
+                             }
+                         }
     }
 }
